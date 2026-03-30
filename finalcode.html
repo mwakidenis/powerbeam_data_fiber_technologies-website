@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Powerbeam Data Fiber Technologies | Fast & Reliable Fibre Internet in Mombasa</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="fibre internet mombasa, home fibre mombasa, business internet mombasa, powerbeam fiber" name="keywords">
+    <meta content="Powerbeam Data Fiber Technologies delivers fast, reliable and affordable pure optical fibre internet across Mombasa County. Plans from KES 1,500/month. CAK licensed." name="description">
+    <meta property="og:title" content="Powerbeam Data Fiber Technologies | Fast & Reliable Fibre Internet in Mombasa">
+    <meta property="og:description" content="Pure optical fibre internet for homes and businesses across Mombasa County. Plans from KES 1,500/month. CAK licensed & EHS certified.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS + Custom -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1e73ff;
+            --primary-dark: #0d5ad9;
+            --secondary: #f4b400;
+            --dark-bg: #061429;
+            --light-bg: #f8fafc;
+            --luminous-blue: #3b82f6;
+            --luminous-cyan: #06b6d4;
+            --luminous-green: #10b981;
+            --luminous-purple: #8b5cf6;
+            --luminous-orange: #f97316;
+            --luminous-pink: #ec489a;
+            --luminous-teal: #14b8a6;
+            --luminous-yellow: #eab308;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+        .text-primary { color: var(--primary) !important; }
+        .bg-primary { background-color: var(--primary) !important; }
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        .section-title h5::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            display: block;
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+        /* Spinner */
+        #spinner {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+            z-index: 99999;
+        }
+        #spinner.show {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease-out, visibility 0s linear 0s;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* Navbar */
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.85);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: var(--secondary);
+        }
+        
+        /* Carousel overlay */
+        .carousel-caption {
+            bottom: 30%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3));
+            border-radius: 20px;
+        }
+        @media (max-width: 768px) {
+            .carousel-caption { bottom: 20%; }
+            .display-1 { font-size: 2rem; }
+        }
+        
+        /* Cards hover */
+        .package-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15) !important;
+        }
+        
+        /* coverage check */
+        .coverage-bg {
+            background: linear-gradient(135deg, #061429 0%, #0d2b5a 100%);
+        }
+        
+        /* Full pricing table styling */
+        .pricing-table-wrapper {
+            overflow-x: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        .pricing-table th {
+            background: #0a1a2f;
+            color: #fff;
+            padding: 18px 15px;
+            font-weight: 700;
+            font-size: 15px;
+            text-align: left;
+        }
+        .pricing-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eef2f6;
+            vertical-align: middle;
+        }
+        .pricing-table tr:hover td {
+            background-color: #f8fafd;
+        }
+        .price-tag {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+        .tag-badge {
+            background: #f4b400;
+            color: #1e1e2a;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 30px;
+            margin-left: 8px;
+            display: inline-block;
+        }
+        .tag-badge.popular {
+            background: #2e8b57;
+            color: white;
+        }
+        .tag-badge.max {
+            background: #111;
+            color: white;
+        }
+        .btn-subscribe-sm {
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            background: var(--primary);
+            border: none;
+            color: white;
+            transition: 0.2s;
+        }
+        .btn-subscribe-sm:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+        
+        /* Feature Strip Icons - Luminous Different Colors */
+        .feature-strip {
+            background: #fff;
+            border-radius: 30px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            margin: 40px 0;
+        }
+        .feature-item {
+            text-align: center;
+            padding: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-8px);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .feature-icon i {
+            font-size: 38px;
+        }
+        .feature-item h5 {
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .feature-item p {
+            font-size: 0.85rem;
+            color: #5a6e8a;
+            margin-bottom: 0;
+            max-width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Individual icon color classes - luminous vibrant colors */
+        .icon-blue { color: #3b82f6; }
+        .icon-cyan { color: #06b6d4; }
+        .icon-green { color: #10b981; }
+        .icon-purple { color: #8b5cf6; }
+        .icon-orange { color: #f97316; }
+        .icon-pink { color: #ec489a; }
+        .icon-teal { color: #14b8a6; }
+        .icon-yellow { color: #eab308; }
+        
+        .value-prop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .value-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.04);
+            transition: 0.2s;
+        }
+        .value-card:hover {
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+        }
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            background: #eef3ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+        }
+        .value-icon i {
+            font-size: 30px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 45px;
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            line-height: 45px;
+            z-index: 99;
+            transition: 0.3s;
+        }
+        .back-to-top:hover {
+            background: var(--secondary);
+            color: #111;
+        }
+        
+        footer a {
+            color: #bbb;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: var(--primary);
+        }
+        
+        .highlight-row {
+            background-color: #fff9e6;
+        }
+        .popular-row {
+            background-color: #e8f3ec;
+        }
+        .max-row {
+            background-color: #e6f4fa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .feature-icon {
+                width: 65px;
+                height: 65px;
+            }
+            .feature-icon i {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Topbar -->
+    <div class="container-fluid bg-dark text-white py-2 px-4 d-none d-lg-flex">
+        <div class="container d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <i class="fa fa-map-marker-alt me-2 text-primary"></i>
+                <span>Mtopanga Estate, Mombasa</span>
+                <i class="fa fa-phone-alt ms-4 me-2 text-primary"></i>
+                <span>0723 923 572</span>
+                <i class="fa fa-envelope ms-4 me-2 text-primary"></i>
+                <span>admin@powerbeam.co.ke</span>
+            </div>
+            <div class="d-flex">
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar - Updated Brand Name -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="#">Powerbeam<span class="text-primary"> Data Fiber</span> Technologies</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#all-plans">All Plans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#coverage">Coverage</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <div class="container-fluid p-0 mb-5">
+        <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=600&fit=crop" alt="Fiber Hero" style="height: 70vh; object-fit: cover;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+                        <div class="p-3" style="max-width: 800px;">
+                            <h5 class="text-white text-uppercase mb-3">Welcome to Powerbeam Data Fiber Technologies</h5>
+                            <h1 class="display-3 text-white fw-bold mb-4">Your Gateway to High-Speed Fiber Internet</h1>
+                            <a href="#all-plans" class="btn btn-primary py-3 px-5 me-3">View All Plans</a>
+                            <a href="#coverage" class="btn btn-outline-light py-3 px-5">Check Coverage</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="container-fluid py-5" id="about">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5">
+                    <div class="section-title position-relative pb-3 mb-4">
+                        <h5 class="fw-bold text-primary text-uppercase">Who We Are</h5>
+                        <h1 class="mb-0">Connecting Mombasa, One Home at a Time</h1>
+                    </div>
+                    <p class="mb-4">Powerbeam Data Fiber Technologies delivers <strong>pure optical fibre internet</strong> across Mombasa County — reliable, fast, and affordable for homes, businesses, institutions, and ISPs. We are CAK licensed and committed to bridging the digital divide with cutting-edge fibre infrastructure.</p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width:40px;height:40px;"><i class="fa fa-home text-white"></i></div>
+                                <span class="fw-bold">Home Fibre (FTTH)</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width:40px;height:40px;"><i class="fa fa-building text-white"></i></div>
+                                <span class="fw-bold">Business & DIA</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width:40px;height:40px;"><i class="fa fa-school text-white"></i></div>
+                                <span class="fw-bold">Institutions</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width:40px;height:40px;"><i class="fa fa-network-wired text-white"></i></div>
+                                <span class="fw-bold">ISP Backhaul</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary py-3 px-5">Contact Us</a>
+                </div>
+                <div class="col-lg-7">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&h=500&fit=crop" alt="Powerbeam Fibre" class="img-fluid rounded shadow-lg" style="object-fit:cover; width:100%; border-radius: 20px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coverage Check Start -->
+    <div class="container-fluid py-5 coverage-bg" id="coverage">
+        <div class="container py-4">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <h5 class="fw-bold text-primary text-uppercase">Coverage Check</h5>
+                    <h2 class="text-white mb-3">Is Powerbeam Fibre Available in Your Area?</h2>
+                    <p class="text-white mb-0" style="opacity:0.8;">Our fibre network is growing fast across Mombasa County. Type your area to find out if you're connected.</p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="bg-white rounded-4 p-4 shadow">
+                        <label class="fw-bold mb-2">Enter your area name:</label>
+                        <div class="input-group mb-3">
+                            <input type="text" id="coverageInput" class="form-control form-control-lg border-primary" placeholder="e.g. Bamburi, Nyali, Shanzu, Mtopanga..." oninput="liveCoverageSearch(this.value)">
+                            <button class="btn btn-primary px-4" onclick="doCoverageCheck()"><i class="fa fa-search me-1"></i> Check</button>
+                        </div>
+                        <div id="coverageResult" class="d-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Packages Preview Section (3 Feature Cards) -->
+    <div class="container-fluid py-5" id="packages">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 650px;">
+                <h5 class="fw-bold text-primary text-uppercase">Our Packages</h5>
+                <h1 class="mb-0">Plans Built for Every Need</h1>
+                <p class="mt-3 text-muted">Pure optical fibre. Unlimited data. Professional installation.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Home Fibre Card -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="package-card rounded-4 overflow-hidden shadow-sm h-100 d-flex flex-column border-0">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=220&fit=crop" class="w-100" style="height:200px; object-fit:cover;">
+                            <div class="position-absolute top-0 end-0 m-3"><span class="badge bg-primary px-3 py-2">Home</span></div>
+                        </div>
+                        <div class="p-4 flex-grow-1 d-flex flex-column">
+                            <h4 class="fw-bold mb-1">Home Fibre (FTTH)</h4>
+                            <p class="text-muted small mb-3">Perfect for families, students, and home offices</p>
+                            <div class="bg-light rounded-3 p-3 mb-3 text-center">
+                                <i class="fa fa-bolt text-warning me-1"></i>
+                                <span class="fw-bold fs-5">5 Mbps</span>
+                                <span class="text-muted small"> starting speed</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between border-bottom pb-2 mb-2"><span class="text-muted">Monthly:</span><span class="fw-bold">KES 1,500</span></div>
+                                <div class="d-flex justify-content-between"><span class="text-muted">Speeds up to:</span><span class="fw-bold text-primary">100 Mbps</span></div>
+                            </div>
+                            <button onclick="sendWhatsAppMessage('Home Fibre FTTH package')" class="btn btn-outline-primary w-100 mt-auto py-2">Subscribe Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Business Starter (Popular) -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="package-card rounded-4 overflow-hidden shadow-lg h-100 d-flex flex-column" style="border-top: 4px solid var(--primary);">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&h=220&fit=crop" class="w-100" style="height:200px; object-fit:cover;">
+                            <div class="position-absolute top-0 start-0 m-3"><span class="badge bg-dark px-3 py-2"><i class="fa fa-star text-warning me-1"></i> Popular</span></div>
+                        </div>
+                        <div class="p-4 flex-grow-1 d-flex flex-column">
+                            <h4 class="fw-bold mb-1">Business Starter</h4>
+                            <p class="text-muted small mb-3">Cyber cafés, offices, and small teams</p>
+                            <div class="bg-light rounded-3 p-3 mb-3 text-center">
+                                <i class="fa fa-chart-line text-primary me-1"></i>
+                                <span class="fw-bold fs-5">30 Mbps</span>
+                                <span class="text-muted small"> dedicated speed</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between border-bottom pb-2 mb-2"><span class="text-muted">Monthly:</span><span class="fw-bold text-primary fs-5">KES 4,500</span></div>
+                                <div class="d-flex justify-content-between"><span class="text-muted">Speeds up to:</span><span class="fw-bold text-primary">100 Mbps</span></div>
+                            </div>
+                            <button onclick="sendWhatsAppMessage('Business Starter 30 Mbps @ KES 4,500')" class="btn btn-primary w-100 mt-auto py-2">Subscribe Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- DIA Card -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="package-card rounded-4 overflow-hidden shadow-sm h-100 d-flex flex-column">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&h=220&fit=crop" class="w-100" style="height:200px; object-fit:cover;">
+                            <div class="position-absolute top-0 end-0 m-3"><span class="badge bg-warning text-dark px-3 py-2">Enterprise</span></div>
+                        </div>
+                        <div class="p-4 flex-grow-1 d-flex flex-column">
+                            <h4 class="fw-bold mb-1">Dedicated Internet (DIA)</h4>
+                            <p class="text-muted small mb-3">Enterprise-grade dedicated bandwidth for ISPs and corporates</p>
+                            <div class="bg-dark rounded-3 p-3 mb-3 text-center text-white">
+                                <span class="fw-bold fs-6">200 Mbps – 10 Gbps</span><br><span class="small">Dedicated, uncontended</span>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between border-bottom pb-2 mb-2"><span class="text-muted">Pricing:</span><span class="fw-bold">From Ksh 90/Mbps</span></div>
+                                <div class="d-flex justify-content-between"><span class="text-muted">SLA:</span><span class="fw-bold text-primary">Guaranteed</span></div>
+                            </div>
+                            <button onclick="sendWhatsAppMessage('DIA Enterprise package enquiry')" class="btn btn-outline-primary w-100 mt-auto py-2">Get a Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FULL PLANS TABLE - DIRECT DISPLAY -->
+    <div class="container-fluid py-5 bg-light" id="all-plans">
+        <div class="container py-4">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 700px;">
+                <h5 class="fw-bold text-primary text-uppercase">Complete Speed List</h5>
+                <h1 class="mb-3">All Fiber Plans & Pricing</h1>
+                <p class="text-muted">Every package includes pure optical fibre, unlimited data, and professional installation. Choose what works for you.</p>
+            </div>
+            <div class="pricing-table-wrapper">
+                <table class="pricing-table">
+                    <thead><tr><th>Speed</th><th>Best For</th><th>Monthly Price (KES)</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>5 Mbps</strong></td><td>Browsing, Email, Light Streaming</td><td class="price-tag">KES 1,500</td><td><button class="btn-subscribe-sm" onclick="sendWhatsAppMessage('5 Mbps plan @ KES 1,500')">Subscribe</button></td></tr>
+                        <tr><td><strong>8 Mbps</strong></td><td>Streaming HD, Video calls</td><td class="price-tag">KES 2,500</td><td><button class="btn-subscribe-sm" onclick="sendWhatsAppMessage('8 Mbps plan @ KES 2,500')">Subscribe</button></td></tr>
+                        <tr class="highlight-row"><td><strong>10 Mbps</strong> <span class="tag-badge">🔥 Hot Deal</span></td><td>Conferencing, Gaming, 4K Ready</td><td class="price-tag" style="color:#f4b400;">KES 2,800</td><td><button class="btn-subscribe-sm" style="background:#f4b400; color:#1e1e2a;" onclick="sendWhatsAppMessage('10 Mbps plan @ KES 2,800')">Subscribe</button></td></tr>
+                        <tr><td><strong>15 Mbps</strong></td><td>Multi-device, 4K Streaming</td><td class="price-tag">KES 3,000</td><td><button class="btn-subscribe-sm" onclick="sendWhatsAppMessage('15 Mbps plan @ KES 3,000')">Subscribe</button></td></tr>
+                        <tr><td><strong>20 Mbps</strong></td><td>Smart home, Small business</td><td class="price-tag">KES 3,500</td><td><button class="btn-subscribe-sm" onclick="sendWhatsAppMessage('20 Mbps plan @ KES 3,500')">Subscribe</button></td></tr>
+                        <tr class="popular-row"><td><strong>30 Mbps</strong> <span class="tag-badge popular">⭐ Popular</span></td><td>Cyber café, Power users, Small teams</td><td class="price-tag" style="color:#2e8b57;">KES 4,500</td><td><button class="btn-subscribe-sm" style="background:#2e8b57;" onclick="sendWhatsAppMessage('30 Mbps plan @ KES 4,500')">Subscribe</button></td></tr>
+                        <tr><td><strong>40 Mbps</strong></td><td>Office, Cloud apps, Multiple devices</td><td class="price-tag">KES 5,500</td><td><button class="btn-subscribe-sm" onclick="sendWhatsAppMessage('40 Mbps plan @ KES 5,500')">Subscribe</button></td></tr>
+                        <tr><td><strong>60 Mbps</strong></td><td>School, Clinic, Heavy usage</td><td class="price-tag">KES 6,000</td><td><button class="btn-subscribe-sm" onclick="sendWhatsAppMessage('60 Mbps plan @ KES 6,000')">Subscribe</button></td></tr>
+                        <tr><td><strong>80 Mbps</strong></td><td>Large teams, High-def cloud work</td><td class="price-tag">KES 6,500</td><td><button class="btn-subscribe-sm" onclick="sendWhatsAppMessage('80 Mbps plan @ KES 6,500')">Subscribe</button></td></tr>
+                        <tr class="max-row"><td><strong>100 Mbps</strong> <span class="tag-badge max">🚀 Max Speed</span></td><td>Businesses, Heavy users, Ultra HD</td><td class="price-tag" style="color:#17a2b8;">KES 10,000</td><td><button class="btn-subscribe-sm" style="background:#17a2b8;" onclick="sendWhatsAppMessage('100 Mbps Max plan @ KES 10,000')">Subscribe</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-4"><small class="text-muted"><i class="fa fa-check-circle text-primary"></i> All plans include: Pure Fibre, Unlimited Data, 24/7 Support, Free Installation (terms apply)</small></div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <div class="container-fluid py-5" style="background: #f0f5ff;">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width:600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Why Choose Us</h5>
+                <h1 class="mb-0">Why Powerbeam for Fibre Services?</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow zoomIn"><div class="h-100 p-4 rounded-4 bg-white shadow-sm"><div class="d-flex align-items-center mb-3"><div class="rounded-circle d-flex align-items-center justify-content-center me-3 bg-primary" style="width:56px;height:56px;"><i class="fa fa-bolt text-white fs-5"></i></div><h5 class="fw-bold">Blazing Fast Speeds</h5></div><p class="text-muted">Fibre-optic network delivering seamless streaming, smooth gaming, and lightning-fast downloads — up to 100 Mbps.</p></div></div>
+                <div class="col-lg-4 col-md-6 wow zoomIn"><div class="h-100 p-4 rounded-4 bg-white shadow-sm"><div class="d-flex align-items-center mb-3"><div class="rounded-circle d-flex align-items-center justify-content-center me-3 bg-primary" style="width:56px;height:56px;"><i class="fa fa-wifi text-white fs-5"></i></div><h5 class="fw-bold">Rock-Solid Reliability</h5></div><p class="text-muted">Robust infrastructure keeps you connected 24/7 with minimal downtime.</p></div></div>
+                <div class="col-lg-4 col-md-6 wow zoomIn"><div class="h-100 p-4 rounded-4 bg-white shadow-sm"><div class="d-flex align-items-center mb-3"><div class="rounded-circle d-flex align-items-center justify-content-center me-3 bg-primary" style="width:56px;height:56px;"><i class="fa fa-infinity text-white fs-5"></i></div><h5 class="fw-bold">Unlimited Data</h5></div><p class="text-muted">No data caps, no overage charges. Stream, work, and game without limits.</p></div></div>
+                <div class="col-lg-4 col-md-6 wow zoomIn"><div class="h-100 p-4 rounded-4 bg-white shadow-sm"><div class="d-flex align-items-center mb-3"><div class="rounded-circle d-flex align-items-center justify-content-center me-3 bg-primary" style="width:56px;height:56px;"><i class="fa fa-headset text-white fs-5"></i></div><h5 class="fw-bold">Exceptional Support</h5></div><p class="text-muted">Dedicated support team always available — a call or message away.</p></div></div>
+                <div class="col-lg-4 col-md-6 wow zoomIn"><div class="h-100 p-4 rounded-4 bg-white shadow-sm"><div class="d-flex align-items-center mb-3"><div class="rounded-circle d-flex align-items-center justify-content-center me-3 bg-primary" style="width:56px;height:56px;"><i class="fa fa-tag text-white fs-5"></i></div><h5 class="fw-bold">Affordable Pricing</h5></div><p class="text-muted">Competitive plans starting from KES 1,500/month — more value for money.</p></div></div>
+                <div class="col-lg-4 col-md-6 wow zoomIn"><div class="h-100 p-4 rounded-4 text-center" style="background: linear-gradient(135deg, #1e73ff, #0d5ad9);"><div class="mb-3"><i class="fa fa-phone-alt text-white fs-2"></i></div><h5 class="text-white fw-bold">Ready to Connect?</h5><p class="text-white-50">Get started with Powerbeam today.</p><h6 class="text-white fw-bold mb-3">0723 923 572</h6><a href="tel:+254723923572" class="btn btn-light text-primary fw-bold px-4 rounded-pill">Call Now</a></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURE STRIP SECTION - LUMINOUS DIFFERENT COLORS, CAK IN YELLOW -->
+    <div class="container py-4">
+        <div class="feature-strip">
+            <div class="row g-4 text-center">
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <div class="feature-icon mx-auto"><i class="fa fa-network-wired icon-blue fs-1"></i></div>
+                        <h5>Pure Optical Fiber</h5>
+                        <p>Maximum stability and speed — no copper, no compromise</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <div class="feature-icon mx-auto"><i class="fa fa-infinity icon-cyan fs-1"></i></div>
+                        <h5>No Throttling</h5>
+                        <p>No caps, no throttling — stream and work without limits</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <div class="feature-icon mx-auto"><i class="fa fa-certificate icon-yellow fs-1"></i></div>
+                        <h5>CAK Licensed</h5>
+                        <p>Fully licensed and compliant with Kenyan communications authority</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <div class="feature-icon mx-auto"><i class="fa fa-tools icon-green fs-1"></i></div>
+                        <h5>Free Installation</h5>
+                        <p>Professional installation at no extra cost (terms apply)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 pt-2 g-4 text-center">
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <div class="feature-icon mx-auto"><i class="fa fa-headset icon-purple fs-1"></i></div>
+                        <h5>24/7 Support</h5>
+                        <p>Our team is always available to resolve any issue fast</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <div class="feature-icon mx-auto"><i class="fa fa-chart-line icon-orange fs-1"></i></div>
+                        <h5>Unlimited Data</h5>
+                        <p>No caps, no throttling — stream and work without limits</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <div class="feature-icon mx-auto"><i class="fa fa-clock icon-pink fs-1"></i></div>
+                        <h5>24/7 Support</h5>
+                        <p>Our team is always available to resolve any issue fast</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-item">
+                        <div class="feature-icon mx-auto"><i class="fa fa-tag icon-teal fs-1"></i></div>
+                        <h5>Affordable Plans</h5>
+                        <p>Competitive pricing starting from KES 1,500/month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+    <!-- Testimonial Section -->
+    <div class="container-fluid py-5" style="background: linear-gradient(135deg,#061429 0%,#0d2a4a 100%);">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto"><h5 class="fw-bold text-primary text-uppercase">Testimonials</h5><h1 class="mb-0 text-white">What Our Customers Say</h1></div>
+            <div class="row g-4">
+                <div class="col-md-4"><div class="bg-white rounded-4 p-4 shadow h-100"><div class="d-flex mb-3"><i class="fa fa-quote-left text-primary fs-1 me-2"></i><div><h6 class="fw-bold">Dufya</h6><div class="text-warning"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div></div></div><p class="text-muted">Streaming and video calls work perfectly without buffering. Very satisfied with the stability.</p></div></div>
+                <div class="col-md-4"><div class="bg-white rounded-4 p-4 shadow h-100"><div class="d-flex mb-3"><i class="fa fa-quote-left text-primary fs-1 me-2"></i><div><h6 class="fw-bold">Daktoor</h6><div class="text-warning"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div></div></div><p class="text-muted">I recently like your services; they are stable and consistent. Keep it up!</p></div></div>
+                <div class="col-md-4"><div class="bg-white rounded-4 p-4 shadow h-100"><div class="d-flex mb-3"><i class="fa fa-quote-left text-primary fs-1 me-2"></i><div><h6 class="fw-bold">Charity</h6><div class="text-warning"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div></div></div><p class="text-muted">Customer support is responsive and helpful. Powerbeam delivers top reliability!</p></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3" id="contact">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4"><h4 class="text-primary mb-3">Powerbeam Data Fiber Technologies</h4><p>Pure optical fibre internet for homes and businesses across Mombasa County. Reliable, fast, and affordable.</p></div>
+                <div class="col-lg-4"><h5 class="text-white mb-3">Contact Info</h5><p><i class="fa fa-map-marker-alt text-primary me-2"></i>Mtopanga Estate, Mombasa</p><p><i class="fa fa-phone-alt text-primary me-2"></i>0723 923 572</p><p><i class="fa fa-envelope text-primary me-2"></i>admin@powerbeam.co.ke</p></div>
+                <div class="col-lg-4"><h5 class="text-white mb-3">Quick Links</h5><ul class="list-unstyled"><li><a href="#" class="text-white-50">Home</a></li><li><a href="#packages" class="text-white-50">Packages</a></li><li><a href="#all-plans" class="text-white-50">All Plans</a></li><li><a href="#coverage" class="text-white-50">Coverage</a></li></ul></div>
+            </div>
+            <hr class="my-4 opacity-25">
+            <div class="text-center text-white-50 small">&copy; 2025 Powerbeam Data Fiber Technologies. Pure Fibre Internet Mombasa. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+        window.addEventListener('load', () => { document.getElementById('spinner').classList.remove('show'); });
+        $(window).scroll(function(){ if($(this).scrollTop()>300) $('.back-to-top').fadeIn(); else $('.back-to-top').fadeOut(); });
+        $('.back-to-top').click(function(){ $('html, body').animate({scrollTop:0},500); return false; });
+
+        const coverageAreas = [
+            { name: "Mtopanga", zone: "Mombasa" }, { name: "Nyali", zone: "Mombasa" }, { name: "Bamburi", zone: "Mombasa" },
+            { name: "Shanzu", zone: "Mombasa" }, { name: "Kisauni", zone: "Mombasa" }, { name: "Mombasa CBD", zone: "Mombasa" },
+            { name: "Tudor", zone: "Mombasa" }, { name: "Likoni", zone: "Mombasa" }, { name: "Changamwe", zone: "Mombasa" }
+        ];
+        function searchAreas(query) { return coverageAreas.filter(a => a.name.toLowerCase().includes(query.toLowerCase())); }
+        function liveCoverageSearch(val) {
+            const resultDiv = document.getElementById('coverageResult');
+            if (!val || val.trim() === '') { resultDiv.className = 'd-none'; return; }
+            const matches = searchAreas(val);
+            if (matches.length) { resultDiv.className = 'alert alert-success mb-0 mt-2'; resultDiv.innerHTML = `<i class="fa fa-check-circle me-2"></i><strong>Great news!</strong> We cover: ${matches.map(a=>`<strong>${a.name}</strong> (${a.zone})`).join(', ')}. <a href="#" class="alert-link" onclick="sendWhatsAppMessage('coverage inquiry for ${val}')">Request connection</a>`; }
+            else { resultDiv.className = 'alert alert-warning mb-0 mt-2'; resultDiv.innerHTML = `<i class="fa fa-info-circle me-2"></i>We're expanding. <a href="#" class="alert-link" onclick="sendWhatsAppMessage('coverage waitlist for ${val}')">Contact us</a> to join our waitlist for <strong>${val}</strong>.`; }
+        }
+        function doCoverageCheck() { liveCoverageSearch(document.getElementById('coverageInput').value); }
+        function sendWhatsAppMessage(pkg) { window.open(`https://api.whatsapp.com/send?phone=254723923572&text=${encodeURIComponent('Hi Powerbeam, I would like to subscribe/inquire: ' + pkg)}`, '_blank'); }
+        document.addEventListener('DOMContentLoaded', function(){ const inp = document.getElementById('coverageInput'); if(inp) inp.addEventListener('keydown', e => { if(e.key === 'Enter') doCoverageCheck(); }); });
+    </script>
+</body>
+
+</html>
