@@ -280,7 +280,7 @@
             color: var(--luminous-blue);
         }
         
-        /* ===== PREMIUM BRAND LOGO - MINIMIZED WIDTH (REDUCED LENGTH) ===== */
+        /* ===== PREMIUM BRAND LOGO ===== */
         .brand-logo {
             text-decoration: none;
             display: inline-flex;
@@ -296,7 +296,6 @@
             transform: translateY(-1px);
         }
         
-        /* Top row - Powerbeam Data side by side with minimal gap */
         .logo-top-row {
             display: flex;
             align-items: baseline;
@@ -351,7 +350,6 @@
             filter: brightness(1.02);
         }
         
-        /* Keep navbar brand compact */
         .navbar-brand {
             margin-right: 1rem;
             padding: 0;
@@ -372,7 +370,6 @@
             box-shadow: 0 15px 30px -12px rgba(0,0,0,0.08);
         }
         
-        /* Coverage card style */
         .coverage-card {
             background: linear-gradient(135deg, #f8fafc, #ffffff);
             border-radius: 28px;
@@ -381,7 +378,6 @@
             border: 1px solid rgba(0,0,0,0.05);
         }
         
-        /* Minimal feature badges */
         .minimal-badge {
             display: inline-flex;
             align-items: center;
@@ -399,7 +395,6 @@
             font-size: 0.75rem;
         }
         
-        /* Hero tagline with flash emoji */
         .hero-tagline {
             font-size: 0.85rem;
             letter-spacing: 0.3px;
@@ -420,10 +415,7 @@
             .floating-buttons { bottom: 20px; right: 20px; gap: 12px; }
             .feature-icon-modern { width: 55px; height: 55px; }
             .feature-icon-modern i { font-size: 24px; }
-            .brand-powerbeam, .brand-data { 
-                padding: 3px 8px; 
-                font-size: 0.7rem;
-            }
+            .brand-powerbeam, .brand-data { padding: 3px 8px; font-size: 0.7rem; }
             .brand-tech { padding: 2px 8px; font-size: 0.55rem; }
             .logo-top-row { gap: 3px; }
             .coverage-card { padding: 1.5rem; }
@@ -480,7 +472,7 @@
         </div>
     </div>
 
-    <!-- Navbar - With Minimized Logo Width -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top py-3 shadow-sm">
         <div class="container">
             <a class="navbar-brand brand-logo" href="#">
@@ -506,12 +498,11 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Kenya's Fastest Growing Fiber -->
+    <!-- Hero Section -->
     <div class="container-fluid hero-section py-5">
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <!-- Kenya's Fastest Growing Fiber with flash emoji - replacing Welcome to Powerbeam -->
                     <div class="hero-tagline text-luminous-blue text-uppercase fw-semibold">
                         <i class="fas fa-bolt"></i> Kenya's Fastest Growing Fiber
                     </div>
@@ -521,20 +512,10 @@
                         <a href="#pricing-table" class="btn btn-luminous">View All Plans</a>
                         <a href="#coverage" class="btn btn-outline-luminous">Check Coverage</a>
                     </div>
-                    <!-- Badges placed below the buttons -->
                     <div class="d-flex flex-wrap gap-3">
-                        <div class="minimal-badge">
-                            <i class="fas fa-chart-line text-luminous-green"></i>
-                            <span>99% Uptime</span>
-                        </div>
-                        <div class="minimal-badge">
-                            <i class="fas fa-infinity text-luminous-orange"></i>
-                            <span>Unlimited Data</span>
-                        </div>
-                        <div class="minimal-badge">
-                            <i class="fas fa-headset text-luminous-blue"></i>
-                            <span>24/7 Local Support</span>
-                        </div>
+                        <div class="minimal-badge"><i class="fas fa-chart-line text-luminous-green"></i><span>99% Uptime</span></div>
+                        <div class="minimal-badge"><i class="fas fa-infinity text-luminous-orange"></i><span>Unlimited Data</span></div>
+                        <div class="minimal-badge"><i class="fas fa-headset text-luminous-blue"></i><span>24/7 Local Support</span></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -544,7 +525,7 @@
         </div>
     </div>
 
-    <!-- About Section with Coverage Check on Right Side -->
+    <!-- About Section with Coverage Check -->
     <div class="container py-5" id="about">
         <div class="row align-items-stretch g-5">
             <div class="col-lg-6">
@@ -584,41 +565,13 @@
             <p class="text-secondary">Pure fiber, unlimited data, professional installation</p>
         </div>
         <div class="row g-4">
-            <div class="col-md-4">
-                <div class="glass-card p-4 h-100 text-center">
-                    <div class="feature-icon-modern mx-auto"><i class="fa fa-home fs-1 text-luminous-blue"></i></div>
-                    <h4 class="fw-bold mt-3">Home Fiber (FTTH)</h4>
-                    <p class="text-muted">Families, students, home offices</p>
-                    <div class="bg-light rounded-3 p-2 mb-3"><span class="fw-bold fs-4">KES 1,500</span><span class="text-muted">/month</span></div>
-                    <p class="small">Speeds up to 100 Mbps | 5 Mbps start</p>
-                    <button class="btn btn-outline-luminous w-100 mt-2" onclick="openBillingModal('Home Fiber FTTH', 1500)">Subscribe Now</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="glass-card p-4 h-100 text-center position-relative overflow-hidden">
-                    <span class="badge-luminous position-absolute top-0 end-0 m-3">⭐ Popular</span>
-                    <div class="feature-icon-modern mx-auto"><i class="fa fa-chart-line fs-1 text-luminous-green"></i></div>
-                    <h4 class="fw-bold mt-3">Business Starter</h4>
-                    <p class="text-muted">Cyber cafés, offices, small teams</p>
-                    <div class="bg-light rounded-3 p-2 mb-3"><span class="fw-bold fs-4">KES 4,500</span><span class="text-muted">/month</span></div>
-                    <p class="small">30 Mbps dedicated | up to 100 Mbps</p>
-                    <button class="btn btn-luminous w-100 mt-2" onclick="openBillingModal('Business Starter', 4500)">Subscribe Now</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="glass-card p-4 h-100 text-center">
-                    <div class="feature-icon-modern mx-auto"><i class="fa fa-building fs-1 text-luminous-purple"></i></div>
-                    <h4 class="fw-bold mt-3">Dedicated Internet (DIA)</h4>
-                    <p class="text-muted">Enterprise-grade dedicated bandwidth</p>
-                    <div class="bg-light rounded-3 p-2 mb-3">200 Mbps – 10 Gbps</div>
-                    <p class="small">From KES 90/Mbps | SLA Guaranteed</p>
-                    <button class="btn btn-outline-luminous w-100 mt-2" onclick="sendWhatsAppMessage('DIA Enterprise enquiry')">Get Quote</button>
-                </div>
-            </div>
+            <div class="col-md-4"><div class="glass-card p-4 h-100 text-center"><div class="feature-icon-modern mx-auto"><i class="fa fa-home fs-1 text-luminous-blue"></i></div><h4 class="fw-bold mt-3">Home Fiber (FTTH)</h4><p class="text-muted">Families, students, home offices</p><div class="bg-light rounded-3 p-2 mb-3"><span class="fw-bold fs-4">KES 1,500</span><span class="text-muted">/month</span></div><p class="small">Speeds up to 100 Mbps | 5 Mbps start</p><button class="btn btn-outline-luminous w-100 mt-2" onclick="openBillingModal('Home Fiber FTTH', 1500)">Subscribe Now</button></div></div>
+            <div class="col-md-4"><div class="glass-card p-4 h-100 text-center position-relative overflow-hidden"><span class="badge-luminous position-absolute top-0 end-0 m-3">⭐ Popular</span><div class="feature-icon-modern mx-auto"><i class="fa fa-chart-line fs-1 text-luminous-green"></i></div><h4 class="fw-bold mt-3">Business Starter</h4><p class="text-muted">Cyber cafés, offices, small teams</p><div class="bg-light rounded-3 p-2 mb-3"><span class="fw-bold fs-4">KES 4,500</span><span class="text-muted">/month</span></div><p class="small">30 Mbps dedicated | up to 100 Mbps</p><button class="btn btn-luminous w-100 mt-2" onclick="openBillingModal('Business Starter', 4500)">Subscribe Now</button></div></div>
+            <div class="col-md-4"><div class="glass-card p-4 h-100 text-center"><div class="feature-icon-modern mx-auto"><i class="fa fa-building fs-1 text-luminous-purple"></i></div><h4 class="fw-bold mt-3">Dedicated Internet (DIA)</h4><p class="text-muted">Enterprise-grade dedicated bandwidth</p><div class="bg-light rounded-3 p-2 mb-3">200 Mbps – 10 Gbps</div><p class="small">From KES 90/Mbps | SLA Guaranteed</p><button class="btn btn-outline-luminous w-100 mt-2" onclick="sendWhatsAppMessage('DIA Enterprise enquiry')">Get Quote</button></div></div>
         </div>
     </div>
 
-    <!-- Full Pricing Table -->
+    <!-- Full Pricing Table - CORRECTED: 5 Mbps row properly formatted, 100 Mbps highlighted in light yellow -->
     <div class="container py-5" id="pricing-table">
         <div class="text-center mb-5">
             <h5 class="text-luminous-cyan text-uppercase fw-bold">Complete Speed List</h5>
@@ -630,18 +583,70 @@
                 <thead>
                     <tr><th>Speed</th><th>Best For</th><th>Monthly Price</th><th>Action</th></thead>
                 <tbody>
-                    <tr><strong>5 Mbps</strong>   WhetherBrowsing, Email Whether<td class="fw-bold text-luminous-blue">KES 1,500 Whether}<button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('5 Mbps Plan', 1500)">Subscribe</button>}    </tr>
-                    <tr><td><strong>8 Mbps</strong></td><td>Streaming HD, Video calls</td><td class="fw-bold text-luminous-blue">KES 2,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('8 Mbps Plan', 2500)">Subscribe</button></td></tr>
-                    <tr style="background:#fff7ed;"><td><strong>10 Mbps</strong> <span class="badge-luminous ms-2">🔥 Hot Deal</span></td><td>Conferencing, Gaming</td><td class="fw-bold text-luminous-orange">KES 2,800</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('10 Mbps Plan', 2800)">Subscribe</button></td></tr>
-                    <tr><td><strong>15 Mbps</strong></td><td>Multi-device, 4K</td><td class="fw-bold text-luminous-blue">KES 3,000</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('15 Mbps Plan', 3000)">Subscribe</button></td></tr>
-                    <tr><td><strong>20 Mbps</strong></td><td>Smart home, Small biz</td><td class="fw-bold text-luminous-blue">KES 3,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('20 Mbps Plan', 3500)">Subscribe</button></td></tr>
-                    <tr style="background:#ecfdf5;"><td><strong>30 Mbps</strong> <span class="badge-popular ms-2">⭐ Popular</span></td><td>Cyber café, Power users</td><td class="fw-bold text-luminous-green">KES 4,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('30 Mbps Plan', 4500)">Subscribe</button></td></tr>
-                    <tr><td><strong>40 Mbps</strong></td><td>Office, Cloud apps</td><td class="fw-bold text-luminous-blue">KES 5,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('40 Mbps Plan', 5500)">Subscribe</button></td></tr>
-                    <tr><td><strong>60 Mbps</strong></td><td>School, Clinic</td><td class="fw-bold text-luminous-blue">KES 6,000</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('60 Mbps Plan', 6000)">Subscribe</button></td></tr>
-                    <tr><td><strong>80 Mbps</strong></td><td>Large teams, Heavy cloud</td><td class="fw-bold text-luminous-blue">KES 6,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('80 Mbps Plan', 6500)">Subscribe</button></td></tr>
-                    <tr class="highlight-max-yellow"><td><strong>100 Mbps</strong> <span class="badge-max ms-2">🚀 Max Speed</span></td><td>Businesses, Heavy users <span style="color: var(--luminous-yellow);">🏆 BEST VALUE</span></td><td class="fw-bold">KES 10,000</td><td><button class="btn btn-sm" style="background: var(--luminous-yellow); color: #1e1e2a; font-weight: 600; border-radius: 40px; padding: 6px 18px; border: none;" onclick="openBillingModal('100 Mbps Max Plan', 10000)">Subscribe</button></td></tr>
+                    <!-- 5 Mbps - Fixed, no extra characters -->
+                    <tr>
+                        <td><strong>5 Mbps</strong></td>
+                        <td>Browsing, Email</td>
+                        <td class="fw-bold text-luminous-blue">KES 1,500</td>
+                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('5 Mbps Plan', 1500)">Subscribe</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>8 Mbps</strong></td>
+                        <td>Streaming HD, Video calls</td>
+                        <td class="fw-bold text-luminous-blue">KES 2,500</td>
+                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('8 Mbps Plan', 2500)">Subscribe</button></td>
+                    </tr>
+                    <tr style="background:#fff7ed;">
+                        <td><strong>10 Mbps</strong> <span class="badge-luminous ms-2">🔥 Hot Deal</span></td>
+                        <td>Conferencing, Gaming</td>
+                        <td class="fw-bold text-luminous-orange">KES 2,800</td>
+                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('10 Mbps Plan', 2800)">Subscribe</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>15 Mbps</strong></td>
+                        <td>Multi-device, 4K</td>
+                        <td class="fw-bold text-luminous-blue">KES 3,000</td>
+                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('15 Mbps Plan', 3000)">Subscribe</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>20 Mbps</strong></td>
+                        <td>Smart home, Small biz</td>
+                        <td class="fw-bold text-luminous-blue">KES 3,500</td>
+                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('20 Mbps Plan', 3500)">Subscribe</button></td>
+                    </tr>
+                    <tr style="background:#ecfdf5;">
+                        <td><strong>30 Mbps</strong> <span class="badge-popular ms-2">⭐ Popular</span></td>
+                        <td>Cyber café, Power users</td>
+                        <td class="fw-bold text-luminous-green">KES 4,500</td>
+                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('30 Mbps Plan', 4500)">Subscribe</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>40 Mbps</strong></td>
+                        <td>Office, Cloud apps</td>
+                        <td class="fw-bold text-luminous-blue">KES 5,500</td>
+                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('40 Mbps Plan', 5500)">Subscribe</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>60 Mbps</strong></td>
+                        <td>School, Clinic</td>
+                        <td class="fw-bold text-luminous-blue">KES 6,000</td>
+                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('60 Mbps Plan', 6000)">Subscribe</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>80 Mbps</strong></td>
+                        <td>Large teams, Heavy cloud</td>
+                        <td class="fw-bold text-luminous-blue">KES 6,500</td>
+                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('80 Mbps Plan', 6500)">Subscribe</button></td>
+                    </tr>
+                    <!-- 100 Mbps - Highlighted in light yellow with well-placed button -->
+                    <tr class="highlight-max-yellow">
+                        <td><strong>100 Mbps</strong> <span class="badge-max ms-2">🚀 Max Speed</span></td>
+                        <td>Businesses, Heavy users <span style="color: var(--luminous-yellow);">🏆 BEST VALUE</span></td>
+                        <td class="fw-bold" style="color: var(--luminous-yellow);">KES 10,000</td>
+                        <td><button class="btn btn-sm" style="background: var(--luminous-yellow); color: #1e1e2a; font-weight: 600; border-radius: 40px; padding: 6px 18px; border: none;" onclick="openBillingModal('100 Mbps Max Plan', 10000)">Subscribe Now</button></td>
+                    </tr>
                 </tbody>
-             </table>
+            </table>
         </div>
     </div>
 
