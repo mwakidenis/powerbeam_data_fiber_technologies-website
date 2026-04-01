@@ -280,69 +280,81 @@
             color: var(--luminous-blue);
         }
         
-        /* ===== PREMIUM BRAND LOGO - REDUCED SIZE ===== */
+        /* ===== PREMIUM BRAND LOGO - MINIMIZED WIDTH (REDUCED LENGTH) ===== */
         .brand-logo {
             text-decoration: none;
             display: inline-flex;
             flex-direction: column;
-            align-items: center;
-            gap: 4px;
+            align-items: flex-start;
+            gap: 2px;
             background: transparent;
             transition: transform 0.2s ease;
+            line-height: 1.2;
         }
         
         .brand-logo:hover {
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
         
+        /* Top row - Powerbeam Data side by side with minimal gap */
         .logo-top-row {
             display: flex;
-            align-items: center;
-            gap: 0;
+            align-items: baseline;
+            gap: 4px;
+            flex-wrap: nowrap;
         }
         
         .brand-powerbeam {
             background: linear-gradient(135deg, #1abc9c, #0ea5e9);
             color: #fff;
-            padding: 5px 12px;
-            border-radius: 8px 0 0 8px;
+            padding: 4px 10px;
+            border-radius: 20px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: -0.2px;
-            box-shadow: 0 2px 8px rgba(14,165,233,0.2);
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(14,165,233,0.2);
             transition: all 0.2s ease;
         }
         
         .brand-data {
             background: linear-gradient(135deg, #facc15, #fbbf24);
             color: #1e1e2a;
-            padding: 5px 12px;
+            padding: 4px 10px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: -0.2px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 8px rgba(250,204,21,0.2);
+            border-radius: 20px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(250,204,21,0.2);
             transition: all 0.2s ease;
         }
         
         .brand-tech {
             background: linear-gradient(135deg, #8b5e3c, #a47148);
             color: #fff;
-            padding: 3px 14px;
+            padding: 3px 12px;
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.65rem;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
             text-transform: uppercase;
-            box-shadow: 0 2px 6px rgba(139,94,60,0.2);
+            box-shadow: 0 1px 4px rgba(139,94,60,0.2);
             transition: all 0.2s ease;
             display: inline-block;
+            white-space: nowrap;
         }
         
         .brand-logo:hover .brand-powerbeam,
         .brand-logo:hover .brand-data,
         .brand-logo:hover .brand-tech {
             filter: brightness(1.02);
+        }
+        
+        /* Keep navbar brand compact */
+        .navbar-brand {
+            margin-right: 1rem;
+            padding: 0;
         }
         
         .hero-section {
@@ -368,12 +380,11 @@
             .feature-icon-modern { width: 55px; height: 55px; }
             .feature-icon-modern i { font-size: 24px; }
             .brand-powerbeam, .brand-data { 
-                padding: 4px 10px; 
-                font-size: 0.75rem;
+                padding: 3px 8px; 
+                font-size: 0.7rem;
             }
-            .brand-powerbeam { border-radius: 6px 0 0 6px; }
-            .brand-data { border-radius: 0 6px 6px 0; }
-            .brand-tech { padding: 2px 10px; font-size: 0.55rem; }
+            .brand-tech { padding: 2px 8px; font-size: 0.55rem; }
+            .logo-top-row { gap: 3px; }
         }
         
         #spinner {
@@ -425,10 +436,10 @@
         </div>
     </div>
 
-    <!-- Navbar - With Reduced Logo Size -->
+    <!-- Navbar - With Minimized Logo Width (Reduced Length) -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top py-3 shadow-sm">
         <div class="container">
-            <!-- 🔥 REDUCED LOGO SIZE - TECHNOLOGIES BELOW -->
+            <!-- 🔥 MINIMIZED WIDTH LOGO - Full text but compact horizontal space -->
             <a class="navbar-brand brand-logo" href="#">
                 <div class="logo-top-row">
                     <span class="brand-powerbeam">Powerbeam</span>
@@ -570,18 +581,18 @@
                 <thead>
                     <tr><th>Speed</th><th>Best For</th><th>Monthly Price</th><th>Action</th></thead>
                 <tbody>
-                    <tr><strong>5 Mbps</strong>  <td>Browsing, Email</td><td class="fw-bold text-luminous-blue">KES 1,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('5 Mbps Plan', 1500)">Subscribe</button></td></tr>
-                    <tr><td><strong>8 Mbps</strong></td><td>Streaming HD, Video calls</td><td class="fw-bold text-luminous-blue">KES 2,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('8 Mbps Plan', 2500)">Subscribe</button></td></tr>
-                    <tr style="background:#fff7ed;"><td><strong>10 Mbps</strong> <span class="badge-luminous ms-2">🔥 Hot Deal</span></td><td>Conferencing, Gaming</td><td class="fw-bold text-luminous-orange">KES 2,800</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('10 Mbps Plan', 2800)">Subscribe</button></td></tr>
-                    <tr><td><strong>15 Mbps</strong></td><td>Multi-device, 4K</td><td class="fw-bold text-luminous-blue">KES 3,000</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('15 Mbps Plan', 3000)">Subscribe</button></td></tr>
-                    <tr><td><strong>20 Mbps</strong></td><td>Smart home, Small biz</td><td class="fw-bold text-luminous-blue">KES 3,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('20 Mbps Plan', 3500)">Subscribe</button></td></tr>
-                    <tr style="background:#ecfdf5;"><td><strong>30 Mbps</strong> <span class="badge-popular ms-2">⭐ Popular</span></td><td>Cyber café, Power users</td><td class="fw-bold text-luminous-green">KES 4,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('30 Mbps Plan', 4500)">Subscribe</button></td></tr>
-                    <tr><td><strong>40 Mbps</strong></td><td>Office, Cloud apps</td><td class="fw-bold text-luminous-blue">KES 5,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('40 Mbps Plan', 5500)">Subscribe</button></td></tr>
-                    <tr><td><strong>60 Mbps</strong></td><td>School, Clinic</td><td class="fw-bold text-luminous-blue">KES 6,000</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('60 Mbps Plan', 6000)">Subscribe</button></td></tr>
-                    <tr><td><strong>80 Mbps</strong></td><td>Large teams, Heavy cloud</td><td class="fw-bold text-luminous-blue">KES 6,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('80 Mbps Plan', 6500)">Subscribe</button></td></tr>
-                    <tr class="highlight-max-yellow"><td><strong>100 Mbps</strong> <span class="badge-max ms-2">🚀 Max Speed</span></td><td>Businesses, Heavy users <span style="color: var(--luminous-yellow);">🏆 BEST VALUE</span></td><td class="fw-bold">KES 10,000</td><td><button class="btn btn-sm" style="background: var(--luminous-yellow); color: #1e1e2a; font-weight: 600; border-radius: 40px; padding: 6px 18px; border: none;" onclick="openBillingModal('100 Mbps Max Plan', 10000)">Subscribe</button></td></tr>
+                    <tr><strong>5 Mbps</strong>   WhetherBrowsing, Email Whether<td class="fw-bold text-luminous-blue">KES 1,500 Whether<td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('5 Mbps Plan', 1500)">Subscribe</button></td> </tr>
+                    <tr> <td><strong>8 Mbps</strong></td> <td>Streaming HD, Video calls</td> <td class="fw-bold text-luminous-blue">KES 2,500</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('8 Mbps Plan', 2500)">Subscribe</button></td> </tr>
+                    <tr style="background:#fff7ed;"> <td><strong>10 Mbps</strong> <span class="badge-luminous ms-2">🔥 Hot Deal</span></td> <td>Conferencing, Gaming</td> <td class="fw-bold text-luminous-orange">KES 2,800</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('10 Mbps Plan', 2800)">Subscribe</button></td> </tr>
+                    <tr> <td><strong>15 Mbps</strong></td> <td>Multi-device, 4K</td> <td class="fw-bold text-luminous-blue">KES 3,000</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('15 Mbps Plan', 3000)">Subscribe</button></td> </tr>
+                    <tr> <td><strong>20 Mbps</strong></td> <td>Smart home, Small biz</td> <td class="fw-bold text-luminous-blue">KES 3,500</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('20 Mbps Plan', 3500)">Subscribe</button></td> </tr>
+                    <tr style="background:#ecfdf5;"> <td><strong>30 Mbps</strong> <span class="badge-popular ms-2">⭐ Popular</span></td> <td>Cyber café, Power users</td> <td class="fw-bold text-luminous-green">KES 4,500</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('30 Mbps Plan', 4500)">Subscribe</button></td> </tr>
+                    <tr> <td><strong>40 Mbps</strong></td> <td>Office, Cloud apps</td> <td class="fw-bold text-luminous-blue">KES 5,500</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('40 Mbps Plan', 5500)">Subscribe</button></td> </tr>
+                    <tr> <td><strong>60 Mbps</strong></td> <td>School, Clinic</td> <td class="fw-bold text-luminous-blue">KES 6,000</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('60 Mbps Plan', 6000)">Subscribe</button></td> </tr>
+                    <tr> <td><strong>80 Mbps</strong></td> <td>Large teams, Heavy cloud</td> <td class="fw-bold text-luminous-blue">KES 6,500</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('80 Mbps Plan', 6500)">Subscribe</button></td> </tr>
+                    <tr class="highlight-max-yellow"> <td><strong>100 Mbps</strong> <span class="badge-max ms-2">🚀 Max Speed</span></td> <td>Businesses, Heavy users <span style="color: var(--luminous-yellow);">🏆 BEST VALUE</span></td> <td class="fw-bold">KES 10,000</td> <td><button class="btn btn-sm" style="background: var(--luminous-yellow); color: #1e1e2a; font-weight: 600; border-radius: 40px; padding: 6px 18px; border: none;" onclick="openBillingModal('100 Mbps Max Plan', 10000)">Subscribe</button></td> </tr>
                 </tbody>
-              </table>
+            </table>
         </div>
     </div>
 
