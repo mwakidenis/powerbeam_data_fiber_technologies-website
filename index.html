@@ -372,6 +372,15 @@
             box-shadow: 0 15px 30px -12px rgba(0,0,0,0.08);
         }
         
+        /* Coverage card style */
+        .coverage-card {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
         @media (max-width: 768px) {
             .whatsapp-float a { width: 50px; height: 50px; }
             .whatsapp-float i { font-size: 28px; }
@@ -385,6 +394,7 @@
             }
             .brand-tech { padding: 2px 8px; font-size: 0.55rem; }
             .logo-top-row { gap: 3px; }
+            .coverage-card { padding: 1.5rem; }
         }
         
         #spinner {
@@ -439,7 +449,6 @@
     <!-- Navbar - With Minimized Logo Width (Reduced Length) -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top py-3 shadow-sm">
         <div class="container">
-            <!-- 🔥 MINIMIZED WIDTH LOGO - Full text but compact horizontal space -->
             <a class="navbar-brand brand-logo" href="#">
                 <div class="logo-top-row">
                     <span class="brand-powerbeam">Powerbeam</span>
@@ -484,9 +493,9 @@
         </div>
     </div>
 
-    <!-- About Section -->
+    <!-- About Section with Coverage Check on Right Side (replacing image) -->
     <div class="container py-5" id="about">
-        <div class="row align-items-center g-5">
+        <div class="row align-items-stretch g-5">
             <div class="col-lg-6">
                 <h5 class="fw-bold text-luminous-blue text-uppercase">Who We Are</h5>
                 <h2 class="fw-bold mb-3">Connecting Bamburi with Pure Fiber</h2>
@@ -499,27 +508,19 @@
                 </div>
                 <a href="#contact" class="btn btn-outline-luminous mt-2">Contact Us</a>
             </div>
-
-        </div>
-    </div>
-
-    <!-- Coverage Check -->
-    <div class="container-fluid py-5" style="background: #f8fafc;" id="coverage">
-        <div class="container py-4">
-            <div class="row align-items-center g-4">
-                <div class="col-lg-5">
-                    <h5 class="fw-bold text-luminous-yellow text-uppercase">Coverage Check</h5>
-                    <h2 class="mb-3">Is Powerbeam Fiber in Your Area?</h2>
-                    <p class="text-secondary">Our fiber network is expanding rapidly. Enter your area to check availability.</p>
-                </div>
-                <div class="col-lg-7">
-                    <div class="bg-white rounded-4 p-4 shadow-sm border">
-                        <div class="input-group">
-                            <input type="text" id="coverageInput" class="form-control form-control-lg" placeholder="e.g. Bamburi, Nyali, Mtopanga...">
-                            <button class="btn btn-luminous px-4" onclick="doCoverageCheck()"><i class="fa fa-search me-1"></i> Check</button>
-                        </div>
-                        <div id="coverageResult" class="d-none mt-3"></div>
+            <div class="col-lg-6">
+                <!-- Coverage Check Card - Moved Here -->
+                <div class="coverage-card h-100 d-flex flex-column justify-content-center">
+                    <div class="mb-3">
+                        <span class="badge bg-luminous-yellow text-dark px-3 py-2 rounded-pill" style="background: var(--luminous-yellow);">📍 Coverage Check</span>
                     </div>
+                    <h3 class="fw-bold mb-3">Is Powerbeam Fiber in Your Area?</h3>
+                    <p class="text-secondary mb-4">Our fiber network is expanding rapidly. Enter your area to check availability.</p>
+                    <div class="input-group">
+                        <input type="text" id="coverageInputAbout" class="form-control form-control-lg border-luminous-blue" placeholder="e.g. Bamburi, Nyali, Mtopanga..." style="border-color: var(--luminous-blue);">
+                        <button class="btn btn-luminous px-4" onclick="doCoverageCheckAbout()"><i class="fa fa-search me-1"></i> Check</button>
+                    </div>
+                    <div id="coverageResultAbout" class="d-none mt-3"></div>
                 </div>
             </div>
         </div>
@@ -579,18 +580,18 @@
                 <thead>
                     <tr><th>Speed</th><th>Best For</th><th>Monthly Price</th><th>Action</th></thead>
                 <tbody>
-                    <tr><strong>5 Mbps</strong>   WhetherBrowsing, Email Whether<td class="fw-bold text-luminous-blue">KES 1,500 Whether<td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('5 Mbps Plan', 1500)">Subscribe</button></td> </tr>
-                    <tr> <td><strong>8 Mbps</strong></td> <td>Streaming HD, Video calls</td> <td class="fw-bold text-luminous-blue">KES 2,500</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('8 Mbps Plan', 2500)">Subscribe</button></td> </tr>
-                    <tr style="background:#fff7ed;"> <td><strong>10 Mbps</strong> <span class="badge-luminous ms-2">🔥 Hot Deal</span></td> <td>Conferencing, Gaming</td> <td class="fw-bold text-luminous-orange">KES 2,800</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('10 Mbps Plan', 2800)">Subscribe</button></td> </tr>
-                    <tr> <td><strong>15 Mbps</strong></td> <td>Multi-device, 4K</td> <td class="fw-bold text-luminous-blue">KES 3,000</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('15 Mbps Plan', 3000)">Subscribe</button></td> </tr>
-                    <tr> <td><strong>20 Mbps</strong></td> <td>Smart home, Small biz</td> <td class="fw-bold text-luminous-blue">KES 3,500</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('20 Mbps Plan', 3500)">Subscribe</button></td> </tr>
-                    <tr style="background:#ecfdf5;"> <td><strong>30 Mbps</strong> <span class="badge-popular ms-2">⭐ Popular</span></td> <td>Cyber café, Power users</td> <td class="fw-bold text-luminous-green">KES 4,500</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('30 Mbps Plan', 4500)">Subscribe</button></td> </tr>
-                    <tr> <td><strong>40 Mbps</strong></td> <td>Office, Cloud apps</td> <td class="fw-bold text-luminous-blue">KES 5,500</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('40 Mbps Plan', 5500)">Subscribe</button></td> </tr>
-                    <tr> <td><strong>60 Mbps</strong></td> <td>School, Clinic</td> <td class="fw-bold text-luminous-blue">KES 6,000</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('60 Mbps Plan', 6000)">Subscribe</button></td> </tr>
-                    <tr> <td><strong>80 Mbps</strong></td> <td>Large teams, Heavy cloud</td> <td class="fw-bold text-luminous-blue">KES 6,500</td> <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('80 Mbps Plan', 6500)">Subscribe</button></td> </tr>
-                    <tr class="highlight-max-yellow"> <td><strong>100 Mbps</strong> <span class="badge-max ms-2">🚀 Max Speed</span></td> <td>Businesses, Heavy users <span style="color: var(--luminous-yellow);">🏆 BEST VALUE</span></td> <td class="fw-bold">KES 10,000</td> <td><button class="btn btn-sm" style="background: var(--luminous-yellow); color: #1e1e2a; font-weight: 600; border-radius: 40px; padding: 6px 18px; border: none;" onclick="openBillingModal('100 Mbps Max Plan', 10000)">Subscribe</button></td> </tr>
+                    <tr><strong>5 Mbps</strong>   WhetherBrowsing, Email Whether<td class="fw-bold text-luminous-blue">KES 1,500 Whether<td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('5 Mbps Plan', 1500)">Subscribe</button></td>  </tr>
+                    <tr><td><strong>8 Mbps</strong></td><td>Streaming HD, Video calls</td><td class="fw-bold text-luminous-blue">KES 2,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('8 Mbps Plan', 2500)">Subscribe</button></td></tr>
+                    <tr style="background:#fff7ed;"><td><strong>10 Mbps</strong> <span class="badge-luminous ms-2">🔥 Hot Deal</span></td><td>Conferencing, Gaming</td><td class="fw-bold text-luminous-orange">KES 2,800</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('10 Mbps Plan', 2800)">Subscribe</button></td></tr>
+                    <tr><td><strong>15 Mbps</strong></td><td>Multi-device, 4K</td><td class="fw-bold text-luminous-blue">KES 3,000</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('15 Mbps Plan', 3000)">Subscribe</button></td></tr>
+                    <tr><td><strong>20 Mbps</strong></td><td>Smart home, Small biz</td><td class="fw-bold text-luminous-blue">KES 3,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('20 Mbps Plan', 3500)">Subscribe</button></td></tr>
+                    <tr style="background:#ecfdf5;"><td><strong>30 Mbps</strong> <span class="badge-popular ms-2">⭐ Popular</span></td><td>Cyber café, Power users</td><td class="fw-bold text-luminous-green">KES 4,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('30 Mbps Plan', 4500)">Subscribe</button></td></tr>
+                    <tr><td><strong>40 Mbps</strong></td><td>Office, Cloud apps</td><td class="fw-bold text-luminous-blue">KES 5,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('40 Mbps Plan', 5500)">Subscribe</button></td></tr>
+                    <tr><td><strong>60 Mbps</strong></td><td>School, Clinic</td><td class="fw-bold text-luminous-blue">KES 6,000</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('60 Mbps Plan', 6000)">Subscribe</button></td></tr>
+                    <tr><td><strong>80 Mbps</strong></td><td>Large teams, Heavy cloud</td><td class="fw-bold text-luminous-blue">KES 6,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('80 Mbps Plan', 6500)">Subscribe</button></td></tr>
+                    <tr class="highlight-max-yellow"><td><strong>100 Mbps</strong> <span class="badge-max ms-2">🚀 Max Speed</span></td><td>Businesses, Heavy users <span style="color: var(--luminous-yellow);">🏆 BEST VALUE</span></td><td class="fw-bold">KES 10,000</td><td><button class="btn btn-sm" style="background: var(--luminous-yellow); color: #1e1e2a; font-weight: 600; border-radius: 40px; padding: 6px 18px; border: none;" onclick="openBillingModal('100 Mbps Max Plan', 10000)">Subscribe</button></td></tr>
                 </tbody>
-            </table>
+             </table>
         </div>
     </div>
 
@@ -691,17 +692,23 @@
             { name: "Tudor", zone: "Mombasa" }, { name: "Likoni", zone: "Mombasa" }, { name: "Changamwe", zone: "Mombasa" }
         ];
         function searchAreas(q) { return coverageAreas.filter(a => a.name.toLowerCase().includes(q.toLowerCase())); }
-        function liveCoverageSearch(val) {
-            const resultDiv = document.getElementById('coverageResult');
+        
+        function liveCoverageSearch(val, resultDivId) {
+            const resultDiv = document.getElementById(resultDivId);
             if (!val || val.trim() === '') { resultDiv.className = 'd-none'; return; }
             const matches = searchAreas(val);
             if (matches.length) { resultDiv.className = 'alert alert-success mb-0 mt-2'; resultDiv.innerHTML = `<i class="fa fa-check-circle me-2"></i><strong>Great news!</strong> We cover: ${matches.map(a=>`<strong>${a.name}</strong> (${a.zone})`).join(', ')}. <a href="#" class="alert-link" onclick="sendWhatsAppMessage('coverage inquiry for ${val}')">Request connection</a>`; }
             else { resultDiv.className = 'alert alert-warning mb-0 mt-2'; resultDiv.innerHTML = `<i class="fa fa-info-circle me-2"></i>We're expanding. <a href="#" class="alert-link" onclick="sendWhatsAppMessage('coverage waitlist for ${val}')">Contact us</a> to join our waitlist for <strong>${val}</strong>.`; }
         }
-        function doCoverageCheck() { liveCoverageSearch(document.getElementById('coverageInput').value); }
+        
+        function doCoverageCheckAbout() {
+            const input = document.getElementById('coverageInputAbout');
+            liveCoverageSearch(input.value, 'coverageResultAbout');
+        }
+        
         function sendWhatsAppMessage(pkg) { window.open(`https://wa.me/254723923572?text=${encodeURIComponent('Hi Powerbeam, I would like to subscribe/inquire: ' + pkg)}`, '_blank'); }
         
-        document.getElementById('coverageInput')?.addEventListener('keydown', e => { if(e.key === 'Enter') doCoverageCheck(); });
+        document.getElementById('coverageInputAbout')?.addEventListener('keydown', e => { if(e.key === 'Enter') doCoverageCheckAbout(); });
         
         let currentPackage = '', currentPrice = 0;
         function openBillingModal(pkgName, price) {
