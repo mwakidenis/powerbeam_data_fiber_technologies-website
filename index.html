@@ -280,79 +280,16 @@
             color: var(--luminous-blue);
         }
         
-        /* ===== PREMIUM BRAND LOGO ===== */
-        .brand-logo {
-            text-decoration: none;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2px;
-            background: transparent;
-            transition: transform 0.2s ease;
-            line-height: 1.2;
-        }
-        
-        .brand-logo:hover {
-            transform: translateY(-1px);
-        }
-        
-        .logo-top-row {
-            display: flex;
-            align-items: baseline;
-            gap: 4px;
-            flex-wrap: nowrap;
-        }
-        
-        .brand-powerbeam {
-            background: linear-gradient(135deg, #1abc9c, #0ea5e9);
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: -0.2px;
-            white-space: nowrap;
-            box-shadow: 0 2px 6px rgba(14,165,233,0.2);
-            transition: all 0.2s ease;
-        }
-        
-        .brand-data {
-            background: linear-gradient(135deg, #facc15, #fbbf24);
-            color: #1e1e2a;
-            padding: 4px 10px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: -0.2px;
-            border-radius: 20px;
-            white-space: nowrap;
-            box-shadow: 0 2px 6px rgba(250,204,21,0.2);
-            transition: all 0.2s ease;
-        }
-        
-        .brand-tech {
-            background: linear-gradient(135deg, #8b5e3c, #a47148);
-            color: #fff;
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.65rem;
-            letter-spacing: 0.2px;
-            text-transform: uppercase;
-            box-shadow: 0 1px 4px rgba(139,94,60,0.2);
-            transition: all 0.2s ease;
-            display: inline-block;
-            white-space: nowrap;
-        }
-        
-        .brand-logo:hover .brand-powerbeam,
-        .brand-logo:hover .brand-data,
-        .brand-logo:hover .brand-tech {
-            filter: brightness(1.02);
+        /* Logo image styles */
+        .logo-img {
+            height: 50px;
+            width: auto;
+            display: block;
         }
         
         .navbar-brand {
-            margin-right: 1rem;
             padding: 0;
+            margin-right: 1rem;
         }
         
         .hero-section {
@@ -415,12 +352,10 @@
             .floating-buttons { bottom: 20px; right: 20px; gap: 12px; }
             .feature-icon-modern { width: 55px; height: 55px; }
             .feature-icon-modern i { font-size: 24px; }
-            .brand-powerbeam, .brand-data { padding: 3px 8px; font-size: 0.7rem; }
-            .brand-tech { padding: 2px 8px; font-size: 0.55rem; }
-            .logo-top-row { gap: 3px; }
             .coverage-card { padding: 1.5rem; }
             .minimal-badge { font-size: 0.7rem; padding: 4px 10px; gap: 6px; }
             .hero-tagline { font-size: 0.7rem; }
+            .logo-img { height: 40px; }
         }
         
         #spinner {
@@ -472,15 +407,11 @@
         </div>
     </div>
 
-    <!-- Navbar -->
+    <!-- Navbar - With Image Logo -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top py-3 shadow-sm">
         <div class="container">
-            <a class="navbar-brand brand-logo" href="#">
-                <div class="logo-top-row">
-                    <span class="brand-powerbeam">Powerbeam</span>
-                    <span class="brand-data">Data</span>
-                </div>
-                <span class="brand-tech">Technologies</span>
+            <a class="navbar-brand" href="#">
+                <img src="https://res.cloudinary.com/dqv8dlj2s/image/upload/q_auto/f_auto/v1775249748/Screenshot_2026-04-03_235348_roa2wy.png" alt="Powerbeam Technologies Logo" class="logo-img">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -571,7 +502,7 @@
         </div>
     </div>
 
-    <!-- Full Pricing Table - CORRECTED: 5 Mbps row properly formatted, 100 Mbps highlighted in light yellow -->
+    <!-- Full Pricing Table -->
     <div class="container py-5" id="pricing-table">
         <div class="text-center mb-5">
             <h5 class="text-luminous-cyan text-uppercase fw-bold">Complete Speed List</h5>
@@ -583,7 +514,6 @@
                 <thead>
                     <tr><th>Speed</th><th>Best For</th><th>Monthly Price</th><th>Action</th></thead>
                 <tbody>
-                    <!-- 5 Mbps - Fixed, no extra characters -->
                     <tr>
                         <td><strong>5 Mbps</strong></td>
                         <td>Browsing, Email</td>
@@ -638,7 +568,7 @@
                         <td class="fw-bold text-luminous-blue">KES 6,500</td>
                         <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('80 Mbps Plan', 6500)">Subscribe</button></td>
                     </tr>
-                    <!-- 100 Mbps - Highlighted in light yellow with well-placed button -->
+                    <!-- 100 Mbps - Highlighted in light yellow -->
                     <tr class="highlight-max-yellow">
                         <td><strong>100 Mbps</strong> <span class="badge-max ms-2">🚀 Max Speed</span></td>
                         <td>Businesses, Heavy users <span style="color: var(--luminous-yellow);">🏆 BEST VALUE</span></td>
@@ -654,7 +584,7 @@
     <div class="container py-5">
         <div class="text-center mb-5">
             <h5 class="text-luminous-purple text-uppercase fw-bold">Why Choose Us</h5>
-            
+            <h2 class="fw-bold">The Powerbeam Advantage</h2>
             <p class="text-secondary">Experience the difference of pure fiber connectivity</p>
         </div>
         <div class="row g-4">
