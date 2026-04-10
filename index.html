@@ -6,14 +6,14 @@
     <title>Powerbeam Data Fiber Technologies | Fast & Reliable Fiber Internet in Mombasa</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="fiber internet mombasa, home fiber mombasa, business internet mombasa, powerbeam fiber" name="keywords">
-    <meta content="Powerbeam Data Technologies delivers fast, reliable and affordable pure optical fiber internet across Mombasa County. Plans from KES 1,500/month. CAK licensed." name="description">
+    <meta content="Powerbeam Data Fiber Technologies delivers fast, reliable and affordable pure optical fiber internet across Mombasa County. Plans from KES 1,500/month. CAK licensed." name="description">
     <meta property="og:title" content="Powerbeam Data Technologies | Fast & Reliable Fiber Internet in Mombasa">
     <meta property="og:description" content="Pure optical fiber internet for homes and businesses across Mombasa County. Plans from KES 1,500/month. CAK licensed & EHS certified.">
     <meta property="og:type" content="website">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -297,17 +297,35 @@
         }
 
         .animated-brand-text {
-            font-size: 1rem;
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-size: clamp(0.95rem, 1.25vw, 1.35rem);
             font-weight: 700;
-            color: var(--navy-blue);
             white-space: nowrap;
-            letter-spacing: 0.2px;
-            line-height: 1;
+            letter-spacing: 0.3px;
+            line-height: 1.1;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .animated-brand-text .brand-word {
+            display: inline-block;
+            transition: color 0.25s ease;
         }
 
         .typed-cursor {
             color: var(--luminous-blue);
             font-weight: 700;
+            font-size: clamp(1rem, 1.2vw, 1.45rem);
+            animation: typedCursorPulse 0.8s ease-in-out infinite;
+        }
+
+        @keyframes typedCursorPulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.35;
+            }
         }
 
         .hero-section {
@@ -376,8 +394,8 @@
             .hero-tagline { font-size: 0.7rem; }
             .logo-img { height: 40px; }
             .animated-brand-text {
-                font-size: 0.8rem;
-                max-width: 170px;
+                font-size: 0.85rem;
+                max-width: 200px;
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
@@ -420,7 +438,7 @@
     <div class="container-fluid bg-light text-dark py-2 px-4 d-none d-lg-flex border-bottom">
         <div class="container d-flex justify-content-between">
             <div class="d-flex align-items-center gap-4">
-                <div><i class="fa fa-map-marker-alt text-luminous-blue me-2"></i>Tonga Estate, Mombasa</div>
+                <div><i class="fa fa-map-marker-alt text-luminous-blue me-2"></i>Mtopanga Estate, Mombasa</div>
                 <div><i class="fa fa-phone-alt text-luminous-blue me-2"></i>0723 923 572</div>
                 <div><i class="fa fa-envelope text-luminous-blue me-2"></i>admin@powerbeam.co.ke</div>
             </div>
@@ -760,19 +778,45 @@
             this.reset();
         });
 
-        new Typed('#newlogo', {
-            strings: [
-                'Powerbeam Data Fiber Technologies',
-                'Pure Fiber Internet',
-                'Fast Reliable Affordable'
-            ],
+        const brandPhrases = [
+            'Powerbeam Data Technologies',
+            'Pure Fiber Internet',
+            'Fast Reliable Affordable'
+        ];
+
+        const brandPalette = [
+            '#0ea5e9',
+            '#06b6d4',
+            '#10b981',
+            '#8b5cf6',
+            '#f97316',
+            '#ec489a',
+            '#14b8a6',
+            '#eab308',
+            '#ef4444'
+        ];
+
+        function buildAnimatedBrandLine(phrase) {
+            const words = phrase.split(' ');
+            return words.map(word => {
+                const color = brandPalette[Math.floor(Math.random() * brandPalette.length)];
+                return `<span class="brand-word" style="color:${color}">${word}</span>`;
+            }).join(' ');
+        }
+
+        const brandTyped = new Typed('#newlogo', {
+            strings: brandPhrases.map(buildAnimatedBrandLine),
+            contentType: 'html',
             loop: true,
-            typeSpeed: 55,
-            backSpeed: 30,
-            backDelay: 1200,
+            typeSpeed: 62,
+            backSpeed: 38,
+            backDelay: 900,
             startDelay: 400,
             smartBackspace: true,
-            showCursor: true
+            showCursor: true,
+            preStringTyped: function (arrayPos, self) {
+                self.strings[arrayPos] = buildAnimatedBrandLine(brandPhrases[arrayPos]);
+            }
         });
     </script>
 </body>
