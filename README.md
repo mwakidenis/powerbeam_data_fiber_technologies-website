@@ -1,3 +1,3 @@
 ### auto-updated links
-cloudflare: https://powerbeam-data-fiber-technologies.pages.dev/
+cloudflare: https://powerbeam-data-fiber-technologies.pages.dev/<br>
 vercel: https://powerbeam.vercel.app/
