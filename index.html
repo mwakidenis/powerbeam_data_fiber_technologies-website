@@ -311,6 +311,11 @@
             transition: color 0.25s ease;
         }
 
+        .animated-line .line-word {
+            display: inline-block;
+            transition: color 0.45s ease;
+        }
+
         .typed-cursor {
             color: var(--luminous-blue);
             font-weight: 700;
@@ -477,10 +482,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="hero-tagline text-luminous-blue text-uppercase fw-semibold">
-                        <i class="fas fa-bolt"></i> Kenya's Fastest Growing Fiber
+                        <i class="fas fa-bolt"></i>
+                        <span id="heroTaglineAnimated" class="animated-line">Kenya's Fastest Growing Fiber</span>
                     </div>
                     <h1 class="display-3 fw-bold mb-3 mt-2">Pure Fiber Internet.<br><span style="color: var(--luminous-blue);">Unlimited Possibilities.</span></h1>
-                    <p class="lead text-secondary mb-4">Experience lightning-fast, reliable fiber internet across Bamburi. Plans for every home and business.</p>
+                    <p id="heroLeadAnimated" class="lead text-secondary mb-4 animated-line">Experience lightning-fast, reliable fiber internet across Bamburi. Plans for every home and business.</p>
                     <div class="d-flex gap-3 mb-4">
                         <a href="#pricing-table" class="btn btn-luminous">View All Plans</a>
                         <a href="#coverage" class="btn btn-outline-luminous">Check Coverage</a>
@@ -503,7 +509,7 @@
             <div class="col-lg-6">
                 <h5 class="fw-bold text-luminous-blue text-uppercase">Who We Are</h5>
                 <h2 class="fw-bold mb-3">Connecting Bamburi with Pure Fiber</h2>
-                <p class="text-secondary">Powerbeam Data Fiber Technologies delivers pure optical fiber internet across Mombasa County — reliable, fast, and affordable for homes, businesses, institutions, and ISPs. CAK licensed, EHS certified.</p>
+                <p id="aboutTextAnimated" class="text-secondary animated-line">Powerbeam Data Fiber Technologies delivers pure optical fiber internet across Mombasa County — reliable, fast, and affordable for homes, businesses, institutions, and ISPs. CAK licensed, EHS certified.</p>
                 <div class="row mt-4">
                     <div class="col-6 mb-3"><i class="fa fa-home text-luminous-blue me-2"></i> Home Fiber (FTTH)</div>
                     <div class="col-6 mb-3"><i class="fa fa-building text-luminous-cyan me-2"></i> Business & DIA</div>
@@ -779,7 +785,7 @@
         });
 
         const brandPhrases = [
-            'Powerbeam Data Technologies',
+            'Poewerbeam Dta Fiber Technologies',
             'Pure Fiber Internet',
             'Fast Reliable Affordable'
         ];
@@ -818,6 +824,41 @@
                 self.strings[arrayPos] = buildAnimatedBrandLine(brandPhrases[arrayPos]);
             }
         });
+
+        function buildAnimatedLineWords(text) {
+            return text.split(' ').map(word => {
+                const color = brandPalette[Math.floor(Math.random() * brandPalette.length)];
+                return `<span class="line-word" style="color:${color}">${word}</span>`;
+            }).join(' ');
+        }
+
+        function applyRandomLineColors(elementId, text) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            el.innerHTML = buildAnimatedLineWords(text);
+        }
+
+        const animatedLines = [
+            {
+                id: 'heroTaglineAnimated',
+                text: "Kenya's Fastest Growing Fiber"
+            },
+            {
+                id: 'heroLeadAnimated',
+                text: 'Experience lightning-fast, reliable fiber internet across Bamburi. Plans for every home and business.'
+            },
+            {
+                id: 'aboutTextAnimated',
+                text: 'Powerbeam Data Fiber Technologies delivers pure optical fiber internet across Mombasa County — reliable, fast, and affordable for homes, businesses, institutions, and ISPs. CAK licensed, EHS certified.'
+            }
+        ];
+
+        function refreshAllAnimatedLines() {
+            animatedLines.forEach(item => applyRandomLineColors(item.id, item.text));
+        }
+
+        refreshAllAnimatedLines();
+        setInterval(refreshAllAnimatedLines, 1800);
     </script>
 </body>
 
