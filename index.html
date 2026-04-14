@@ -1,6 +1,5 @@
-<!DOCTYPE html> <html lang="en"> 
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Powerbeam Data Fiber Technologies | Fast & Reliable Fiber Internet in Mombasa</title>
@@ -52,7 +51,6 @@
         .text-luminous-orange { color: var(--luminous-orange); }
         .text-luminous-pink { color: var(--luminous-pink); }
         .text-luminous-teal { color: var(--luminous-teal); }
-        .text-luminous-yellow { color: var(--luminous-yellow); }
         .text-navy-blue { color: var(--navy-blue); }
 
         .btn-luminous {
@@ -285,25 +283,45 @@
             color: var(--luminous-blue);
         }
 
+        /* FIXED: Logo size properly controlled */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
         .logo-img {
-            height: 50px;
+            height: 44px;
             width: auto;
+            max-width: 180px;
             display: block;
+            object-fit: contain;
         }
 
+        /* Brand text styling - now properly sized */
+        .animated-brand-text {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            white-space: normal;
+            letter-spacing: 0.2px;
+            line-height: 1.2;
+            max-width: 280px;
+            display: inline-block;
+        }
+        
         .navbar-brand {
             padding: 0;
             margin-right: 1rem;
+            display: flex;
+            align-items: center;
         }
 
-        .animated-brand-text {
-            font-family: 'Space Grotesk', 'Inter', sans-serif;
-            font-size: clamp(0.95rem, 1.25vw, 1.35rem);
-            font-weight: 700;
-            white-space: nowrap;
-            letter-spacing: 0.3px;
-            line-height: 1.1;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+        /* Fixed broken img tag syntax and sizing */
+        .brand-logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .animated-brand-text .brand-word {
@@ -397,12 +415,13 @@
             .coverage-card { padding: 1.5rem; }
             .minimal-badge { font-size: 0.7rem; padding: 4px 10px; gap: 6px; }
             .hero-tagline { font-size: 0.7rem; }
-            .logo-img { height: 40px; }
+            .logo-img { height: 36px; max-width: 140px; }
             .animated-brand-text {
                 font-size: 0.85rem;
                 max-width: 200px;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            }
+            .brand-logo-wrapper {
+                gap: 6px;
             }
         }
 
@@ -457,9 +476,15 @@
 
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top py-3 shadow-sm">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <!-- Logo link updated as requested -->
-                <<img src="https://res.cloudinary.com/dqv8dlj2s/image/upload/q_auto/f_auto/v1776019170/file_00000000a4bc71fd84331c667fcf00d0_egebuj.png" class="animated-brand-text"></span>
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <!-- FIXED: Proper logo image with correct size, removed broken img syntax -->
+                <div class="brand-logo-wrapper">
+                    <img src="https://res.cloudinary.com/dqv8dlj2s/image/upload/q_auto/f_auto/v1776019170/file_00000000a4bc71fd84331c667fcf00d0_egebuj.png" 
+                         alt="Powerbeam Data Fiber Technologies Logo" 
+                         class="logo-img"
+                         onerror="this.style.display='none'">
+                    <span class="animated-brand-text" id="newlogo"></span>
+                </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -556,70 +581,18 @@
         </div>
         <div class="table-responsive">
             <table class="pricing-table-modern">
-                <thead>
-                    <tr><th>Speed</th><th>Best For</th><th>Monthly Price</th><th>Action</th></tr>
-                </thead>
+                <thead><tr><th>Speed</th><th>Best For</th><th>Monthly Price</th><th>Action</th></tr></thead>
                 <tbody>
-                    <tr>
-                        <td><strong>5 Mbps</strong></td>
-                        <td>Browsing, Email</td>
-                        <td class="fw-bold text-luminous-blue">KES 1,500</td>
-                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('5 Mbps Plan', 1500)">Subscribe</button></td>
-                    </tr>
-                    <tr>
-                        <td><strong>8 Mbps</strong></td>
-                        <td>Streaming HD, Video calls</td>
-                        <td class="fw-bold text-luminous-blue">KES 2,500</td>
-                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('8 Mbps Plan', 2500)">Subscribe</button></td>
-                    </tr>
-                    <tr style="background:#fff7ed;">
-                        <td><strong>10 Mbps</strong> <span class="badge-luminous ms-2">Hot Deal</span></td>
-                        <td>Conferencing, Gaming</td>
-                        <td class="fw-bold text-luminous-orange">KES 2,800</td>
-                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('10 Mbps Plan', 2800)">Subscribe</button></td>
-                    </tr>
-                    <tr>
-                        <td><strong>15 Mbps</strong></td>
-                        <td>Multi-device, 4K</td>
-                        <td class="fw-bold text-luminous-blue">KES 3,000</td>
-                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('15 Mbps Plan', 3000)">Subscribe</button></td>
-                    </tr>
-                    <tr>
-                        <td><strong>20 Mbps</strong></td>
-                        <td>Smart home, Small biz</td>
-                        <td class="fw-bold text-luminous-blue">KES 3,500</td>
-                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('20 Mbps Plan', 3500)">Subscribe</button></td>
-                    </tr>
-                    <tr style="background:#ecfdf5;">
-                        <td><strong>30 Mbps</strong> <span class="badge-popular ms-2">Popular</span></td>
-                        <td>Cyber cafe, Power users</td>
-                        <td class="fw-bold text-luminous-green">KES 4,500</td>
-                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('30 Mbps Plan', 4500)">Subscribe</button></td>
-                    </tr>
-                    <tr>
-                        <td><strong>40 Mbps</strong></td>
-                        <td>Office, Cloud apps</td>
-                        <td class="fw-bold text-luminous-blue">KES 5,500</td>
-                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('40 Mbps Plan', 5500)">Subscribe</button></td>
-                    </tr>
-                    <tr>
-                        <td><strong>60 Mbps</strong></td>
-                        <td>School, Clinic</td>
-                        <td class="fw-bold text-luminous-blue">KES 6,000</td>
-                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('60 Mbps Plan', 6000)">Subscribe</button></td>
-                    </tr>
-                    <tr>
-                        <td><strong>80 Mbps</strong></td>
-                        <td>Large teams, Heavy cloud</td>
-                        <td class="fw-bold text-luminous-blue">KES 6,500</td>
-                        <td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('80 Mbps Plan', 6500)">Subscribe</button></td>
-                    </tr>
-                    <tr class="highlight-max-yellow">
-                        <td><strong>100 Mbps</strong> <span class="badge-max ms-2">Max Speed</span></td>
-                        <td>Businesses, Heavy users <span style="color: var(--luminous-yellow);">BEST VALUE</span></td>
-                        <td class="fw-bold" style="color: var(--luminous-yellow);">KES 10,000</td>
-                        <td><button class="btn btn-sm" style="background: var(--luminous-yellow); color: #1e1e2a; font-weight: 600; border-radius: 40px; padding: 6px 18px; border: none;" onclick="openBillingModal('100 Mbps Max Plan', 10000)">Subscribe Now</button></td>
-                    </tr>
+                    <tr><td><strong>5 Mbps</strong></td><td>Browsing, Email</td><td class="fw-bold text-luminous-blue">KES 1,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('5 Mbps Plan', 1500)">Subscribe</button></td></tr>
+                    <tr><td><strong>8 Mbps</strong></td><td>Streaming HD, Video calls</td><td class="fw-bold text-luminous-blue">KES 2,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('8 Mbps Plan', 2500)">Subscribe</button></td></tr>
+                    <tr style="background:#fff7ed;"><td><strong>10 Mbps</strong> <span class="badge-luminous ms-2">Hot Deal</span></td><td>Conferencing, Gaming</td><td class="fw-bold text-luminous-orange">KES 2,800</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('10 Mbps Plan', 2800)">Subscribe</button></td></tr>
+                    <tr><td><strong>15 Mbps</strong></td><td>Multi-device, 4K</td><td class="fw-bold text-luminous-blue">KES 3,000</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('15 Mbps Plan', 3000)">Subscribe</button></td></tr>
+                    <tr><td><strong>20 Mbps</strong></td><td>Smart home, Small biz</td><td class="fw-bold text-luminous-blue">KES 3,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('20 Mbps Plan', 3500)">Subscribe</button></td></tr>
+                    <tr style="background:#ecfdf5;"><td><strong>30 Mbps</strong> <span class="badge-popular ms-2">Popular</span></td><td>Cyber cafe, Power users</td><td class="fw-bold text-luminous-green">KES 4,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('30 Mbps Plan', 4500)">Subscribe</button></td></tr>
+                    <tr><td><strong>40 Mbps</strong></td><td>Office, Cloud apps</td><td class="fw-bold text-luminous-blue">KES 5,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('40 Mbps Plan', 5500)">Subscribe</button></td></tr>
+                    <tr><td><strong>60 Mbps</strong></td><td>School, Clinic</td><td class="fw-bold text-luminous-blue">KES 6,000</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('60 Mbps Plan', 6000)">Subscribe</button></td></tr>
+                    <tr><td><strong>80 Mbps</strong></td><td>Large teams, Heavy cloud</td><td class="fw-bold text-luminous-blue">KES 6,500</td><td><button class="btn btn-sm btn-outline-luminous" onclick="openBillingModal('80 Mbps Plan', 6500)">Subscribe</button></td></tr>
+                    <tr class="highlight-max-yellow"><td><strong>100 Mbps</strong> <span class="badge-max ms-2">Max Speed</span></td><td>Businesses, Heavy users <span style="color: var(--luminous-yellow);">BEST VALUE</span></td><td class="fw-bold" style="color: var(--luminous-yellow);">KES 10,000</td><td><button class="btn btn-sm" style="background: var(--luminous-yellow); color: #1e1e2a; font-weight: 600; border-radius: 40px; padding: 6px 18px; border: none;" onclick="openBillingModal('100 Mbps Max Plan', 10000)">Subscribe Now</button></td></tr>
                 </tbody>
             </table>
         </div>
@@ -787,22 +760,14 @@
         const brandPhrases = [
             'Powerbeam Data Fiber Technologies',
             'Pure Fiber Internet',
-            'High speed and Affordable Intenet with Unlimited Possibilities',
+            'High speed and Affordable Internet with Unlimited Possibilities',
             'Experience lightning-fast and reliable fiber internet at your Home',
             'Plans for every home and business',
             'This fiber connection is incredibly stable. You can work from home without any interruptions'
         ];
 
         const brandPalette = [
-            '#0ea5e9',
-            '#06b6d4',
-            '#10b981',
-            '#8b5cf6',
-            '#f97316',
-            '#ec489a',
-            '#14b8a6',
-            '#eab308',
-            '#ef4444'
+            '#0ea5e9', '#06b6d4', '#10b981', '#8b5cf6', '#f97316', '#ec489a', '#14b8a6', '#eab308', '#ef4444'
         ];
 
         function buildAnimatedBrandLine(phrase) {
@@ -822,10 +787,7 @@
             backDelay: 900,
             startDelay: 400,
             smartBackspace: true,
-            showCursor: true,
-            preStringTyped: function (arrayPos, self) {
-                self.strings[arrayPos] = buildAnimatedBrandLine(brandPhrases[arrayPos]);
-            }
+            showCursor: true
         });
 
         function buildAnimatedLineWords(text) {
@@ -842,18 +804,9 @@
         }
 
         const animatedLines = [
-            {
-                id: 'heroTaglineAnimated',
-                text: "Kenya's Fastest Growing Fiber"
-            },
-            {
-                id: 'heroLeadAnimated',
-                text: 'Experience lightning-fast, reliable fiber internet across Bamburi. Plans for every home and business.'
-            },
-            {
-                id: 'aboutTextAnimated',
-                text: 'Powerbeam Data Fiber Technologies delivers pure optical fiber internet across Mombasa County — reliable, fast, and affordable for homes, businesses, institutions, and ISPs. CAK licensed, EHS certified.'
-            }
+            { id: 'heroTaglineAnimated', text: "Kenya's Fastest Growing Fiber" },
+            { id: 'heroLeadAnimated', text: 'Experience lightning-fast, reliable fiber internet across Bamburi. Plans for every home and business.' },
+            { id: 'aboutTextAnimated', text: 'Powerbeam Data Fiber Technologies delivers pure optical fiber internet across Mombasa County — reliable, fast, and affordable for homes, businesses, institutions, and ISPs. CAK licensed, EHS certified.' }
         ];
 
         function refreshAllAnimatedLines() {
@@ -864,5 +817,4 @@
         setInterval(refreshAllAnimatedLines, 1800);
     </script>
 </body>
-
     </html>
